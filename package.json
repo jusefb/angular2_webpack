@@ -29,7 +29,6 @@
     "gulp": "^3.9.0",
     "gulp-angular-filesort": "^1.1.1",
     "gulp-html-replace": "^1.5.5",
-    "gulp-inject": "^3.0.0",
     "gulp-jshint": "^2.0.0",
     "gulp-prettify": "^0.3.0",
     "gulp-sass": "^2.1.1",

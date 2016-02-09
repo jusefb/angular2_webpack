@@ -9,7 +9,6 @@ var WebpackDevServer = require("webpack-dev-server");
 var fs = require('fs');
 var shell = require('gulp-shell');
 var htmlreplace = require('gulp-html-replace');
-
 var webpackConfig = require("./webpack.config.js");
 
 gulp.task('default', ['webpack-dev-server-shell']);
@@ -132,7 +131,8 @@ function chageCssJsPaths(production, jsPath, cssPath) {
     return gulp.src('views/layout.hbs')
         .pipe(htmlreplace({
             'js': [dirName + 'angular2_polyfils.js', dirName + jsBundleName],
-            'css': [dirName + cssBundleName]
+            'css': [dirName + cssBundleName],
+            'main': 'testing'
         }, {
             keepBlockTags: true
         }))

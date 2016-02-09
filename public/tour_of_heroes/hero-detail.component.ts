@@ -35,7 +35,10 @@ export class HeroDetailComponent {
                 this.hero = hero;
             });
         else
-            this.hero = {};
+            this.hero = {
+                id: null,
+                name: ''
+            };
     }
 
 }
