@@ -2,13 +2,18 @@
 <html>
   <head>
     <title>{{title}}</title>
-      <base href="/src" />
-    <link rel='stylesheet' href='http://localhost:8080/dist/main_style.css' />
-      <script src="libs/angular2-polyfills.min.js"></script>
-      <script src="http://localhost:8080/dist/main.bundle.js"></script>
-
+      <base href="/" />
+      <!-- build:css-->
+      <link rel="stylesheet" href="http://localhost:8080/dist/tour_of_heroes_style.css">
+      <!-- endbuild -->
+      <!-- your app's js -->
   </head>
   <body>
     {{{body}}}
+    <!- You have to load the scripts after the main element when using webpack to allow for the main component to load, alternativel add a document.ready event listener before bootstrapping the application-->
+    <!-- build:js-->
+    <script src="http://localhost:8080/dist/angular2_polyfils.js"></script>
+    <script src="http://localhost:8080/dist/tour_of_heroes.js"></script>
+    <!-- endbuild -->
   </body>
 </html>
