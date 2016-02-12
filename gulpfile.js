@@ -14,7 +14,7 @@ var webpackConfig = require("./webpack.config.js");
 gulp.task('default', ['webpack-dev-server-shell']);
 
 gulp.task('webpack-dev-server-shell', shell.task([
-    'webpack-dev-server'
+    'webpack-dev-server --hot --inline'
 ]));
 
 gulp.task('tour_of_heroes', function(){
@@ -22,6 +22,19 @@ gulp.task('tour_of_heroes', function(){
     argv.cssPath = 'tour_of_heroes_style.css';
     argv.production = 'false';
     gulp.start('webpack-dev-server-shell');
+    gulp.start('change_css_js_paths')
+});
+
+gulp.task('run', function(){
+    var appName = argv.appName;
+
+    if(!appName)
+        throw "appName was not passed to the task";
+
+    argv.jsPath = appName + '.js';
+    argv.cssPath = appName + '_style.css';
+    argv.production = 'false';
+    gulp.start('webpack-dev-server');
     gulp.start('change_css_js_paths')
 });
 

@@ -7,7 +7,11 @@ module.exports = {
     entry: {
         angular2_polyfils: './utils/angular2_polyfils.ts',
         tour_of_heroes: './tour_of_heroes/boot.ts',
-        tour_of_heroes_style: './tour_of_heroes/sass/style.scss'
+        tour_of_heroes_style: './tour_of_heroes/sass/style.scss',
+        inventory_app: './inventory_app/boot.ts',
+        inventory_app_style: './inventory_app/sass/style.scss',
+        forms: './forms/forms.ts',
+        forms_style: './forms/sass/style.scss',
     },
     output: {
         path: __dirname + '/public/dist/',
@@ -34,7 +38,7 @@ module.exports = {
                 loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
             },
             {
-                test: /\.(otf|eot|svg|ttf|woff)/,
+                test: /\.(otf|eot|svg|ttf|woff|png)/,
                 loader: 'url-loader?limit=8192'
             }
         ]

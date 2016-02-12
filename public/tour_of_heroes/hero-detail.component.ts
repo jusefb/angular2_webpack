@@ -23,22 +23,22 @@ export class HeroDetailComponent {
     public hero: Hero;
 
     constructor(private _routeParams: RouteParams, private _heroService: HeroService){
-
+        this.hero = {
+            id: null,
+            name: ''
+        };
     }
 
     ngOnInit():any {
         var heroId = this.hero ? this.hero.id : this._routeParams.get('id');
-        console.log(heroId);
 
-        if(heroId)
+        if(heroId) {
             this._heroService.getHero(heroId).then((hero:Hero) => {
                 this.hero = hero;
+            }, (error) =>{
+                console.log(error);
             });
-        else
-            this.hero = {
-                id: null,
-                name: ''
-            };
+        }
     }
 
 }

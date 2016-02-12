@@ -7,7 +7,7 @@ import {HeroDetailComponent} from "./hero-detail.component";
 import {DashboardComponent} from "./dashboard.component";
 
 @Component({
-    selector: 'my-app',
+    selector: 'main-app',
     template:`
         <h1>{{title}}</h1>
             <nav>
