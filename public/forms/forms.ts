@@ -1,4 +1,3 @@
-import {bootstrap} from "angular2/platform/browser";
 import {Component} from "angular2/core";
 import {FORM_DIRECTIVES} from 'angular2/common';
 
@@ -28,5 +27,3 @@ class MainForm {
         console.log('you submitted value:', form);
     }
 }
-
-bootstrap(MainForm);

@@ -42,7 +42,10 @@ export class HeroComponent implements OnInit{
     public heroes: Hero[] = [];
 
     constructor(private _heroService: HeroService) {
-
+        this.selectedHero = {
+            id: null,
+            name: ''
+        };
     }
 
     ngOnInit():any {

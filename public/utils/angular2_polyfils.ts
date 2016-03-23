@@ -1,4 +1,3 @@
-/// <reference path="../../node_modules/angular2/typings/node/node.d.ts" />
 // Polyfills
 import 'es6-shim';
 // (these modules are what are in 'angular2/bundles/angular2-polyfills' so don't use that here)
