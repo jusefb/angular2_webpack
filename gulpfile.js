@@ -17,14 +17,6 @@ gulp.task('webpack-dev-server-shell', shell.task([
     'webpack-dev-server --hot --inline'
 ]));
 
-gulp.task('tour_of_heroes', function(){
-    argv.jsPath = 'tour_of_heroes.js';
-    argv.cssPath = 'tour_of_heroes_style.css';
-    argv.production = 'false';
-    gulp.start('webpack-dev-server-shell');
-    gulp.start('change_css_js_paths')
-});
-
 gulp.task('run', function(){
     var appName = argv.appName;
 
@@ -35,15 +27,6 @@ gulp.task('run', function(){
     argv.cssPath = appName + '_style.css';
     argv.production = 'false';
     gulp.start('webpack-dev-server');
-    gulp.start('change_css_js_paths')
-});
-
-gulp.task('tour_of_heroes:build', function(){
-    argv.jsPath = 'tour_of_heroes.js';
-    argv.cssPath = 'tour_of_heroes_style.css';
-    argv.production = 'true';
-
-    gulp.start('webpack:build');
     gulp.start('change_css_js_paths')
 });
 
