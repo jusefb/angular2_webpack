@@ -11,11 +11,12 @@ var shell = require('gulp-shell');
 var htmlreplace = require('gulp-html-replace');
 var webpackConfig = require("./webpack.config.js");
 
-gulp.task('default', ['webpack-dev-server-shell']);
+gulp.task('default', ['webpack-dev-server']);
 
-gulp.task('webpack-dev-server-shell', shell.task([
-    'webpack-dev-server --hot --inline'
-]));
+gulp.task('run_main_app', function(){
+    argv.appName = 'app';
+    gulp.start('run');
+});
 
 gulp.task('run', function(){
     var appName = argv.appName;
