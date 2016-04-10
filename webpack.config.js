@@ -3,15 +3,15 @@ var webpack = require('webpack');
 
 var path = require('path');
 module.exports = {
-    context: __dirname + "/public",
+    context: __dirname + "/client",
     entry: {
-        angular2_polyfils: './utils/angular2_polyfils.ts',
-        app: './http/app.ts',
-        app_style: './http/sass/style.scss'
+        angular2_polyfils: './src/utils/angular2_polyfils.ts',
+        app: './src/boot.ts',
+        app_style: './assets/sass/style.scss'
 
     },
     output: {
-        path: __dirname + '/public/dist/',
+        path: __dirname + '/client/dist/',
         filename: '[name].js',
         publicPath: '/dist/'
     },
@@ -32,8 +32,7 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader"),
-                exclude: [/examples/]
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
             },
             {
                 test: /\.(otf|eot|svg|ttf|woff|png|gif)/,

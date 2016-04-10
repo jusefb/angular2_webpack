@@ -4,7 +4,7 @@
     <title>{{title}}</title>
       <base href="/" />
       <!-- build:css-->
-      <link rel="stylesheet" href="http://localhost:8080/dist/router_style.css">
+      <link rel="stylesheet" href="dist/app_style.css">
       <!-- endbuild -->
       <!-- your app's js -->
   </head>
@@ -12,8 +12,8 @@
     {{{body}}}
     <!- You have to load the scripts after the main element when using webpack to allow for the main component to load, alternativel add a document.ready event listener before bootstrapping the application-->
     <!-- build:js-->
-    <script src="http://localhost:8080/dist/angular2_polyfils.js"></script>
-    <script src="http://localhost:8080/dist/router.js"></script>
+    <script src="dist/angular2_polyfils.js"></script>
+    <script src="dist/app.js"></script>
     <!-- endbuild -->
   </body>
 </html>

@@ -11,7 +11,7 @@ var shell = require('gulp-shell');
 var htmlreplace = require('gulp-html-replace');
 var webpackConfig = require("./webpack.config.js");
 
-gulp.task('default', ['webpack-dev-server']);
+gulp.task('default', ['run_main_app']);
 
 gulp.task('run_main_app', function(){
     argv.appName = 'app';
@@ -24,11 +24,15 @@ gulp.task('run', function(){
     if(!appName)
         throw "appName was not passed to the task";
 
-    argv.jsPath = appName + '.js';
-    argv.cssPath = appName + '_style.css';
-    argv.production = 'false';
-    gulp.start('webpack-dev-server');
-    gulp.start('change_css_js_paths')
+    var jsPath = appName + '.js';
+    var cssPath = appName + '_style.css';
+
+    if(argv.production)
+        gulp.start('webpack:build');
+    else
+        gulp.start('webpack-dev-server');
+
+    return chageCssJsPaths(argv.production, jsPath, cssPath);
 });
 
 gulp.task("webpack:build", function (callback) {
@@ -90,7 +94,7 @@ gulp.task("webpack-dev-server", function (callback) {
     var jsPath = argv.jsPath;
     var cssPath = argv.cssPath;
     var myConfig = Object.create(webpackConfig);
-    myConfig.devtool = "inline-source-map";
+    myConfig.devtool = "cheap-source-map";
     myConfig.debug = true;
 
     // Start a webpack-dev-server
@@ -125,7 +129,7 @@ function chageCssJsPaths(production, jsPath, cssPath) {
     var jsBundleName = jsPath;//"main_module.bundle.js";
     var cssBundleName = cssPath;//"main_module.css";
     var dirName = !production ? 'http://localhost:8080/dist/' : 'dist/';
-    return gulp.src('views/layout.hbs')
+    return gulp.src('server/views/layout.hbs')
         .pipe(htmlreplace({
             'js': [dirName + 'angular2_polyfils.js', dirName + jsBundleName],
             'css': [dirName + cssBundleName],
@@ -133,5 +137,5 @@ function chageCssJsPaths(production, jsPath, cssPath) {
         }, {
             keepBlockTags: true
         }))
-        .pipe(gulp.dest('views/'));
+        .pipe(gulp.dest('server/views/'));
 }
