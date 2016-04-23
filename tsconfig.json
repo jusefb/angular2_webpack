@@ -12,6 +12,7 @@
     "typings/main.d.ts",
     "typings/main",
     "node_modules",
-    "client/examples"
+    "client/examples",
+    "client/_e2e_tests"
   ]
 }

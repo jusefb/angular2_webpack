@@ -5,13 +5,13 @@ var cwd = process.cwd();
 module.exports = function(config) {
   config.set({
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
+    basePath: 'client/_test',
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine'],
 
-    // plugins: [require('karma-webpack'), require('karma-jasmine'), 'karma-spec-reporter'],
+    plugins: [require('karma-webpack'), require('karma-jasmine'), 'karma-spec-reporter', 'karma-phantomjs-launcher'],
 
     // list of files / patterns to load in the browser
     files: [
@@ -34,7 +34,6 @@ module.exports = function(config) {
         modulesDirectories: ['node_modules', 'app', 'app/ts', 'test', '.'],
         extensions: ['', '.ts', '.js', '.css'],
         alias: {
-          'app': 'app'
         }
       },
       module: {

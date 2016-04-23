@@ -1,14 +1,11 @@
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var webpack = require('webpack');
 
 var path = require('path');
 module.exports = {
     context: __dirname + "/client",
     entry: {
-        angular2_polyfils: './src/utils/angular2_polyfils.ts',
-        app: './src/boot.ts',
-        app_style: './assets/sass/style.scss'
-
+        angular2_polyfils: './src/shared/angular2_polyfils.ts',
+        main_app: ['./src/boot.ts'] //needs to be ab array to ease liveReload gulp configuration
     },
     output: {
         path: __dirname + '/client/dist/',
@@ -19,7 +16,7 @@ module.exports = {
         loaders: [
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+                loader: ["style-loader", "css-loader"]
             },
             {
                 test: /\.ts?$/,
@@ -32,7 +29,7 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
+                loader: ["style-loader", "css-loader!sass-loader"]
             },
             {
                 test: /\.(otf|eot|svg|ttf|woff|png|gif)/,
@@ -49,15 +46,25 @@ module.exports = {
         modulesDirectories: ['node_modules']
     },
     plugins: [
-        new ExtractTextPlugin("[name].css")
+        new webpack.HotModuleReplacementPlugin()
     ],
     externals: {
-        //"jquery": "jQuery"
     },
     devServer: {
+        publicPath: '/dist/',
         hot: true,
+        inline: true,
         stats: {
             colors: true
-        }
+        },
+        debug: true,
+        https: false,
+        host: 'localhost',
+        port: 8888,
+        proxy:[
+            {
+                path: "*", target: "http://localhost:3000"
+            }
+        ]
     }
 };

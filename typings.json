@@ -1,10 +1,12 @@
 {
   "name": "angular_2",
   "ambientDependencies": {
+    "angular-protractor": "github:DefinitelyTyped/DefinitelyTyped/angular-protractor/angular-protractor.d.ts#7de6c3dd94feaeb21f20054b9f30d5dabc5efabd",
     "es6-shim": "github:DefinitelyTyped/DefinitelyTyped/es6-shim/es6-shim.d.ts#4de74cb527395c13ba20b438c3a7a419ad931f1c",
     "jasmine": "github:DefinitelyTyped/DefinitelyTyped/jasmine/jasmine.d.ts#d594ef506d1efe2fea15f8f39099d19b39436b71",
     "jquery": "github:DefinitelyTyped/DefinitelyTyped/jquery/jquery.d.ts#661fc869669af796c6048483e999dce5732eed72",
     "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#48c1e3c1d6baefa4f1a126f188c27c4fefd36bff",
+    "selenium-webdriver": "github:DefinitelyTyped/DefinitelyTyped/selenium-webdriver/selenium-webdriver.d.ts#7de6c3dd94feaeb21f20054b9f30d5dabc5efabd",
     "underscore": "github:DefinitelyTyped/DefinitelyTyped/underscore/underscore.d.ts#bd269cad4cb2b495f940c7b6afc5825d568029be"
   }
 }
