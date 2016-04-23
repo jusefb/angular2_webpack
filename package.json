@@ -10,7 +10,7 @@
     "webdriver:start": "webdriver-manager start || true",
     "e2e": "protractor protractor.js",
     "e2e:live": "npm run e2e -- --elementExplorer",
-    "test": ""
+    "test": "karma start"
   },
   "dependencies": {
     "@ngrx/store": "^1.3.3",
