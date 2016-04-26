@@ -164,7 +164,7 @@ gulp.task('test', function (done) {
 * */
 function changeJsPath(srcFilePath, destPath, production, jsPath) {
     var jsBundleName = jsPath;
-    var dirName = !production ? getWebPackDevServerPath() + '/' + webpackConfig.output.publicPath : webpackConfig.output.publicPath;
+    var dirName = !production ? getWebPackDevServerPath() + webpackConfig.output.publicPath : webpackConfig.output.publicPath;
     gulp.src(srcFilePath)
         .pipe(htmlreplace({
             'js': [dirName + 'angular2_polyfils.js', dirName + jsBundleName]

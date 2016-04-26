@@ -20,5 +20,5 @@ I would like to thanks the creators of the [angular2-webpack-starter](https://gi
 #Setup and Installation Guide
 
 - Clone this repository
-- Run 'npm init', this will download all the nesseccary dependancies and install all the required typings
+- Run 'npm run init', this will download all the nesseccary dependancies and install all the required typings
 - Run 'npm run serve' 

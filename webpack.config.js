@@ -51,7 +51,7 @@ module.exports = {
     externals: {
     },
     devServer: {
-        publicPath: '/dist/',
+        publicPath: '/dist/', //if you change this make sure to check the gulp changeJsPath function
         hot: true,
         inline: true,
         stats: {
